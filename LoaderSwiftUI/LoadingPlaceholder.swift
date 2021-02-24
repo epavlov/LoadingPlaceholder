@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct LoadingPlaceholder: View {
-    // Color of the animating foreground
+    /// Time in seconds that animation will take to perform
+    @State var animationDuration: Double = 2.0
+    
+    /// Color of the animating foreground
     @State var primaryColor: Color = Color(UIColor.lightGray)
     
-    // Color of the background
+    /// Color of the background
     @State var secondaryColor: Color = Color.gray
     
     @State private var animate = false
@@ -28,7 +31,7 @@ struct LoadingPlaceholder: View {
                 )
                 .background(primaryColor)
                 .onAppear {
-                    let animation = Animation.easeInOut(duration: 2).repeatForever(autoreverses: false)
+                    let animation = Animation.easeInOut(duration: animationDuration).repeatForever(autoreverses: false)
                     withAnimation(animation) {
                         animate.toggle()
                     }

@@ -11,6 +11,8 @@ struct ContentView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Loading articles...")
+            LoadingPlaceholder(animationDuration: 1)
+                .frame(width: 150, height: 25)
             LoadingPlaceholder()
                 .frame(width: 300, height: 50)
             LoadingPlaceholder()
